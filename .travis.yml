@@ -8,3 +8,10 @@ before_install:
 
 script:
   - docker run -e CI=true alexsnyx/docker-react npm run test
+
+deploy:
+  provider: azure_web_apps
+  username: azure_deployment_user       # If AZURE_WA_USERNAME isn't set
+  password: azure_deployment_password   # If AZURE_WA_PASSWORD isn't set
+  site: https://docker-react-alexsynx.azurewebsites.net       # If AZURE_WA_SITE isn't set
+  slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
