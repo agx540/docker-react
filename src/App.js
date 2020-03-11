@@ -19,7 +19,7 @@ function App() {
           Learn React.
         </a>
         <div>
-          <p>Alex!!! sevens!!!</p>
+          <p>Alex!!! eight!!! Runs at AWS Beanstalk!!!</p>
         </div>
       </header>
     </div>
