@@ -10,8 +10,16 @@ script:
   - docker run -e CI=true alexsnyx/docker-react npm run test
 
 deploy:
-  provider: azure_web_apps
-  username: azure_deployment_user       # If AZURE_WA_USERNAME isn't set
-  password: azure_deployment_password   # If AZURE_WA_PASSWORD isn't set
-  site: https://docker-react-alexsynx.azurewebsitesXXX.net       # If AZURE_WA_SITE isn't set
-  slot: azure_deployment_slotname       # (optional) If AZURE_WA_SLOT isn't set
+  #edge: true #activate this for missing bucket_name error
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "docker-react"
+  env: "DockerReact-env"
+  #s3 storage
+  bucket_name: "elasticbeanstalk-eu-central-1-725254744174"
+  # folder in S3 bucket
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
